@@ -7,3 +7,10 @@ $ next dev
 - Cache Components enabled
 - Partial Prefetching enabled
 
+○ Compiling / ...
+ GET / 200 in 869ms (next.js: 624ms, application-code: 245ms)
+ GET / 200 in 81ms (next.js: 4ms, application-code: 76ms)
+ GET / 200 in 125ms (next.js: 3ms, application-code: 122ms)
+ GET / 200 in 79ms (next.js: 3ms, application-code: 76ms)
+ GET / 200 in 75ms (next.js: 4ms, application-code: 71ms)
+✓ Compiled in 87ms
