@@ -54,12 +54,13 @@ Tailwind v4 notu: JS'in yazdığı `transform` ile Tailwind'in ayrık `translate
 
 ## Açılış akışı
 
-Aşamalar: `raining` → `landing` → `ready` → `accepted`.
+Aşamalar: `raining` → `ready` → `accepted`.
 
-1. `raining` (~4 sn): rastgele boyut, hız, sallanma ve gecikmeyle güller yağar. Ekrandan çıkan güller DOM'dan kaldırılır.
-2. `landing`: kırmızı gül en son düşer, alt-orta bölgeye yerleşir.
-3. `ready`: yazı ve butonlar yavaşça belirir. Parallax yavaşça sürer.
-4. `accepted`: yeşile basıldıktan sonraki durum.
+1. `raining` (~5,6 sn): seed'li (deterministik) rastgelelikle boyut, hız, sallanma ve gecikme verilmiş güller yağar; kırmızı gül en son düşer ve alt-orta bölgeye yerleşir. Kırmızı gülün iniş animasyonu bitince (`animationend`) `ready`'ye geçilir. Yağan güller o anda DOM'dan kaldırılır.
+2. `ready`: yazı ve butonlar yavaşça belirir. Bulut parallax'ı sürer.
+3. `accepted`: yeşile basıldıktan sonraki durum.
+
+Yağmur ve kırmızı gül yalnızca istemcide render edilir (hydration uyumsuzluğu ve hydration öncesi başlayan animasyonun `animationend`'i kaçırması önlenir). Tüm yağan güllerin inişi, kırmızı gülün inişinden önce biter (bu sözleşme birim testle korunur).
 
 Yağan gül sayısı ekran genişliğine göre ölçeklenir (dar ekranda daha az, örn. ~14; geniş ekranda ~30) ki düşük donanımlı telefonlar takılmasın. Animasyonlar yalnızca `transform` ve `opacity` kullanır.
 
