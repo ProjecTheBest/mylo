@@ -22,11 +22,11 @@ export function ChoiceButtons({ accepted, onAccept }: ChoiceButtonsProps) {
   };
 
   return (
-    <div className="fade-up absolute inset-0 z-20 flex flex-col items-center gap-6 px-6 pt-[max(3rem,16dvh,calc(env(safe-area-inset-top)_+_1rem))] pb-[max(1.5rem,env(safe-area-inset-bottom))] text-center">
+    <div className="fade-up absolute inset-0 z-20 flex flex-col items-center gap-5 px-6 pt-[max(2.5rem,13dvh,calc(env(safe-area-inset-top)_+_1rem))] pb-[max(1.5rem,env(safe-area-inset-bottom))] text-center">
       <h1
         ref={questionRef}
         aria-live="polite"
-        className="max-w-[20ch] font-serif text-[clamp(1.75rem,7vw,3.5rem)] leading-tight font-semibold text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.45)]"
+        className="max-w-[20ch] font-serif text-[clamp(1.5rem,min(7vw,9dvh),3.5rem)] leading-tight font-semibold text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.45)]"
       >
         <span key={accepted ? "result" : "question"} className="fade-up inline-block">
           {accepted ? content.result : content.question}
