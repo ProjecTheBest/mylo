@@ -1,9 +1,9 @@
 /** Sayfadaki tüm yazılar burada. Kendi metinlerinle değiştir. */
 export const content = {
-  pageTitle: "Sayfa başlığı",
-  pageDescription: "Sayfa açıklaması",
-  question: "Soru metni buraya",
-  yesLabel: "Yeşil buton",
-  noLabel: "Kırmızı buton",
-  result: "Sonuç metni buraya",
+  pageTitle: "mylo",
+  pageDescription: "ofy B",
+  question: "Beni affedebilirmisin???",
+  yesLabel: "Elbette affetim bile. :)",
+  noLabel: "Hayır eşşek. sg.",
+  result: "YUPPİEEE :)",
 } as const;
