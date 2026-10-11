@@ -1,26 +1,124 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  html,
+  body {
+    height: 100%;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background: #1d1b4b;
+    overscroll-behavior: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .cloud-rise-slow {
+    animation: cloud-rise 80s linear infinite;
+  }
+
+  .cloud-rise-fast {
+    animation: cloud-rise 42s linear infinite;
+  }
+
+  .scene-zoom {
+    transform-origin: 50% 62%;
+    animation: scene-zoom 7s ease-out both;
+  }
+
+  .rose-fall {
+    animation: rose-fall var(--rose-dur) linear var(--rose-delay) both;
+  }
+
+  .rose-sway {
+    animation: rose-sway var(--rose-sway-dur) ease-in-out infinite alternate;
+  }
+
+  .hero-land {
+    animation: hero-land var(--hero-dur) cubic-bezier(0.2, 0.7, 0.2, 1) var(--hero-delay) both;
+  }
+
+  .fade-up {
+    animation: fade-up 900ms ease-out both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cloud-rise-slow,
+    .cloud-rise-fast,
+    .scene-zoom,
+    .rose-fall,
+    .rose-sway,
+    .hero-land,
+    .fade-up {
+      animation: none;
+    }
+  }
+}
+
+@keyframes cloud-rise {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 -50%;
+  }
+}
+
+@keyframes scene-zoom {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.1;
+  }
+}
+
+@keyframes rose-fall {
+  from {
+    translate: 0 -35dvh;
+    rotate: 0deg;
+  }
+  to {
+    translate: 0 135dvh;
+    rotate: var(--rose-spin);
+  }
+}
+
+@keyframes rose-sway {
+  from {
+    translate: calc(var(--rose-sway) * -1) 0;
+  }
+  to {
+    translate: var(--rose-sway) 0;
+  }
+}
+
+@keyframes hero-land {
+  0% {
+    translate: 0 -120dvh;
+    rotate: -30deg;
+  }
+  75% {
+    translate: 0 1.5dvh;
+    rotate: 5deg;
+  }
+  90% {
+    translate: 0 -0.8dvh;
+    rotate: -2deg;
+  }
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    translate: 0 1.5rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
 }
