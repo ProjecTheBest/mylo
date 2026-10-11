@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChoiceButtons } from "@/components/ChoiceButtons";
 import { HeroRose } from "@/components/HeroRose";
 import { RoseRain } from "@/components/RoseRain";
 import { Scene } from "@/components/Scene";
@@ -22,6 +23,9 @@ export default function Home() {
       {isClient && current === "raining" && <RoseRain />}
       {isClient && (
         <HeroRose onLanded={() => setPhase((previous) => (previous === "raining" ? "ready" : previous))} />
+      )}
+      {isClient && current !== "raining" && (
+        <ChoiceButtons accepted={current === "accepted"} onAccept={() => setPhase("accepted")} />
       )}
     </main>
   );
